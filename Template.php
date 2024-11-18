@@ -12,7 +12,7 @@ class Template {
     public function __construct($dir = './templates/') {
         if (!is_dir($dir)) {
             if (!mkdir($dir, 0777, true)) {
-                throw new Exception('Failed to create template directory. ');
+                throw new Exception('Failed to create template directory.');
             }
         }
 
