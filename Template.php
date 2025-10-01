@@ -19,8 +19,8 @@ class Template {
         $this->dir = $dir;
     }
 
-    public function render($file, array $data = [], $return = false) {
-        $this->file = $this->dir . $file;
+    public function render($file, array $data = []) {
+        $this->file = $this->dir . $file . '.php';
 
         if (!is_file($this->file)) {
             throw new Exception('Could not load file: ' . $this->file);
@@ -32,10 +32,6 @@ class Template {
         include $this->file;
         $buffer = ob_get_clean();
 
-        if ($return) {
-            return $buffer;
-        }
-
-        echo $buffer;
+        return $buffer;
     }
 }
